@@ -6,9 +6,9 @@ apis:
     name: Zudoku
     tags:
       - Documentation
-    humanURL: ' https://zudoku.dev/'
+    humanURL: https://zudoku.dev/
     properties:
-      - url: ' https://zudoku.dev/'
+      - url: https://zudoku.dev/
         type: Documentation
     description: >-
       Create clean, consistent API docs with Zudoku — open source, extensible,
