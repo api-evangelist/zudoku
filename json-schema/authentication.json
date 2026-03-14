@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/zudoku/blob/main/json-schema/authentication.json",
+  "title": "Zudoku Authentication Configuration",
+  "description": "Schema for the Zudoku authentication configuration that enables user sign-in, API key management, and identity-based API playground access through OpenID Connect, OAuth2, or custom providers.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["openid", "oauth2", "custom"],
+      "description": "The authentication provider type."
+    },
+    "clientId": {
+      "type": "string",
+      "description": "OAuth2 or OpenID Connect client identifier."
+    },
+    "issuer": {
+      "type": "string",
+      "format": "uri",
+      "description": "OpenID Connect issuer URL for token verification and discovery."
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Requested OAuth2 scopes for the authentication flow."
+    },
+    "redirectUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "OAuth2 redirect URI after successful authentication."
+    },
+    "audience": {
+      "type": "string",
+      "description": "OAuth2 audience parameter for token requests."
+    }
+  },
+  "required": ["type"]
+}

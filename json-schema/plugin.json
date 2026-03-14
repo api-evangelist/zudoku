@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/zudoku/blob/main/json-schema/plugin.json",
+  "title": "Zudoku Plugin",
+  "description": "Schema for a Zudoku plugin configuration. Plugins extend the platform with additional functionality such as search (Pagefind, Inkeep), analytics (Sentry), and custom pages.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Plugin name identifier, e.g. 'search-pagefind', 'sentry', or a custom plugin name."
+    },
+    "config": {
+      "type": "object",
+      "description": "Plugin-specific configuration options. Structure varies by plugin.",
+      "additionalProperties": true
+    }
+  },
+  "required": ["name"]
+}

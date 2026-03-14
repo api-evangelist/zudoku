@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/zudoku/blob/main/json-schema/api-reference.json",
+  "title": "Zudoku API Reference",
+  "description": "Schema for a Zudoku API reference configuration that points to an OpenAPI schema document for generating interactive API documentation with playground support.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["file", "url"],
+      "description": "How the OpenAPI document is loaded. Use 'file' for local filesystem paths (recommended) or 'url' for remote HTTP endpoints."
+    },
+    "input": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Single path or URL to the OpenAPI document."
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of file paths for versioned API documentation. Version metadata is automatically extracted from each OpenAPI schema at build time."
+        }
+      ],
+      "description": "Path, URL, or array of paths to OpenAPI document(s). Supports JSON and YAML formats."
+    },
+    "navigationId": {
+      "type": "string",
+      "description": "Identifier used for linking this API reference to sidebar navigation sections."
+    },
+    "label": {
+      "type": "string",
+      "description": "Display label for the API reference in navigation and catalog views."
+    },
+    "serverUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Override the server URL defined in the OpenAPI document for playground requests."
+    }
+  },
+  "required": ["type", "input"]
+}

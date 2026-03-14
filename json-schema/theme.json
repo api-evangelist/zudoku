@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/zudoku/blob/main/json-schema/theme.json",
+  "title": "Zudoku Theme Configuration",
+  "description": "Schema for the Zudoku theme and branding configuration that customizes colors, fonts, logos, and dark mode settings for the generated documentation portal.",
+  "type": "object",
+  "properties": {
+    "light": {
+      "$ref": "#/$defs/ThemeColors",
+      "description": "Color palette for light mode."
+    },
+    "dark": {
+      "$ref": "#/$defs/ThemeColors",
+      "description": "Color palette for dark mode."
+    },
+    "fonts": {
+      "type": "object",
+      "description": "Font family configuration for different text elements.",
+      "properties": {
+        "heading": {
+          "type": "string",
+          "description": "Font family for headings."
+        },
+        "body": {
+          "type": "string",
+          "description": "Font family for body text."
+        },
+        "code": {
+          "type": "string",
+          "description": "Font family for code blocks and inline code."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "ThemeColors": {
+      "type": "object",
+      "description": "Color palette for a theme mode.",
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "Primary brand color in CSS format."
+        },
+        "background": {
+          "type": "string",
+          "description": "Background color in CSS format."
+        },
+        "border": {
+          "type": "string",
+          "description": "Border color in CSS format."
+        },
+        "primaryForeground": {
+          "type": "string",
+          "description": "Foreground color used on primary backgrounds."
+        },
+        "secondaryForeground": {
+          "type": "string",
+          "description": "Foreground color used on secondary backgrounds."
+        }
+      }
+    }
+  }
+}

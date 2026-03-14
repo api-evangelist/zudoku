@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/zudoku/blob/main/json-schema/zudoku-config.json",
+  "title": "Zudoku Configuration",
+  "description": "Schema for the top-level Zudoku configuration object (zudoku.config.ts) that drives API documentation generation, navigation, authentication, theming, and plugin integration.",
+  "type": "object",
+  "properties": {
+    "topNavigation": {
+      "type": "array",
+      "description": "Top navigation bar items for the documentation portal.",
+      "items": {
+        "$ref": "#/$defs/NavigationItem"
+      }
+    },
+    "sidebar": {
+      "type": "object",
+      "description": "Sidebar navigation configuration keyed by section identifier.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/SidebarItem"
+        }
+      }
+    },
+    "apis": {
+      "type": "array",
+      "description": "API reference configurations pointing to OpenAPI documents.",
+      "items": {
+        "$ref": "#/$defs/ApiReference"
+      }
+    },
+    "docs": {
+      "type": "array",
+      "description": "MDX documentation page configurations.",
+      "items": {
+        "$ref": "#/$defs/DocConfig"
+      }
+    },
+    "authentication": {
+      "$ref": "#/$defs/AuthenticationConfig"
+    },
+    "theme": {
+      "$ref": "#/$defs/ThemeConfig"
+    },
+    "metadata": {
+      "$ref": "#/$defs/Metadata"
+    },
+    "plugins": {
+      "type": "array",
+      "description": "Registered plugins that extend Zudoku functionality.",
+      "items": {
+        "$ref": "#/$defs/Plugin"
+      }
+    },
+    "redirects": {
+      "type": "array",
+      "description": "URL redirect rules for the documentation site.",
+      "items": {
+        "$ref": "#/$defs/Redirect"
+      }
+    },
+    "basePath": {
+      "type": "string",
+      "description": "Base path prefix for the documentation site."
+    },
+    "page": {
+      "$ref": "#/$defs/PageConfig"
+    }
+  },
+  "$defs": {
+    "NavigationItem": {
+      "type": "object",
+      "description": "A top navigation bar item linking to a documentation section.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier matching a sidebar or API section."
+        },
+        "label": {
+          "type": "string",
+          "description": "Display text for the navigation item."
+        },
+        "default": {
+          "type": "string",
+          "description": "Default path when this navigation item is selected."
+        }
+      },
+      "required": ["id", "label"]
+    },
+    "SidebarItem": {
+      "type": "object",
+      "description": "A sidebar navigation item which can be a page, link, or category with children.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["page", "link", "category"],
+          "description": "The type of sidebar item."
+        },
+        "id": {
+          "type": "string",
+          "description": "Page identifier for internal page references."
+        },
+        "label": {
+          "type": "string",
+          "description": "Display text for the sidebar item."
+        },
+        "link": {
+          "type": "string",
+          "description": "URL for external link type items."
+        },
+        "items": {
+          "type": "array",
+          "description": "Child items when type is category.",
+          "items": {
+            "$ref": "#/$defs/SidebarItem"
+          }
+        }
+      },
+      "required": ["type", "label"]
+    },
+    "ApiReference": {
+      "type": "object",
+      "description": "Configuration for an API reference pointing to an OpenAPI schema document.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["file", "url"],
+          "description": "How the OpenAPI document is loaded: file for local, url for remote."
+        },
+        "input": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "Single path or URL to the OpenAPI document."
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of file paths for versioned API documentation."
+            }
+          ],
+          "description": "Path, URL, or array of paths to OpenAPI document(s)."
+        },
+        "navigationId": {
+          "type": "string",
+          "description": "Identifier used for sidebar navigation linking."
+        },
+        "label": {
+          "type": "string",
+          "description": "Display label for the API reference in navigation."
+        },
+        "serverUrl": {
+          "type": "string",
+          "description": "Override the server URL defined in the OpenAPI document."
+        }
+      },
+      "required": ["type", "input"]
+    },
+    "DocConfig": {
+      "type": "object",
+      "description": "Configuration for MDX-based documentation pages.",
+      "properties": {
+        "files": {
+          "type": "string",
+          "description": "Glob pattern for MDX files to include."
+        }
+      },
+      "required": ["files"]
+    },
+    "AuthenticationConfig": {
+      "type": "object",
+      "description": "Authentication provider configuration for the documentation portal and API playground.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["openid", "oauth2", "custom"],
+          "description": "The authentication provider type."
+        },
+        "clientId": {
+          "type": "string",
+          "description": "OAuth2 or OIDC client identifier."
+        },
+        "issuer": {
+          "type": "string",
+          "description": "OpenID Connect issuer URL."
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Requested OAuth2 scopes."
+        },
+        "redirectUri": {
+          "type": "string",
+          "description": "OAuth2 redirect URI after authentication."
+        }
+      },
+      "required": ["type"]
+    },
+    "ThemeConfig": {
+      "type": "object",
+      "description": "Theme and branding configuration for the documentation portal.",
+      "properties": {
+        "light": {
+          "$ref": "#/$defs/ThemeColors"
+        },
+        "dark": {
+          "$ref": "#/$defs/ThemeColors"
+        },
+        "fonts": {
+          "type": "object",
+          "description": "Font family configuration.",
+          "properties": {
+            "heading": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            },
+            "code": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ThemeColors": {
+      "type": "object",
+      "description": "Color palette for a light or dark theme mode.",
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "Primary brand color."
+        },
+        "background": {
+          "type": "string",
+          "description": "Background color."
+        },
+        "border": {
+          "type": "string",
+          "description": "Border color."
+        }
+      }
+    },
+    "Metadata": {
+      "type": "object",
+      "description": "Site metadata for SEO and social sharing.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Site title."
+        },
+        "description": {
+          "type": "string",
+          "description": "Site description for meta tags."
+        },
+        "favicon": {
+          "type": "string",
+          "description": "Path to the favicon file."
+        }
+      }
+    },
+    "Plugin": {
+      "type": "object",
+      "description": "A plugin that extends Zudoku functionality.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Plugin name identifier."
+        },
+        "config": {
+          "type": "object",
+          "description": "Plugin-specific configuration options.",
+          "additionalProperties": true
+        }
+      },
+      "required": ["name"]
+    },
+    "Redirect": {
+      "type": "object",
+      "description": "A URL redirect rule for the documentation site.",
+      "properties": {
+        "from": {
+          "type": "string",
+          "description": "Source path pattern to match."
+        },
+        "to": {
+          "type": "string",
+          "description": "Target path to redirect to."
+        }
+      },
+      "required": ["from", "to"]
+    },
+    "PageConfig": {
+      "type": "object",
+      "description": "Page-level configuration for logo and banner.",
+      "properties": {
+        "logo": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "type": "object",
+              "properties": {
+                "light": {
+                  "type": "string",
+                  "description": "Logo image path for light mode."
+                },
+                "dark": {
+                  "type": "string",
+                  "description": "Logo image path for dark mode."
+                }
+              }
+            }
+          }
+        },
+        "banner": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Banner message text."
+            },
+            "color": {
+              "type": "string",
+              "description": "Banner background color."
+            }
+          }
+        }
+      }
+    }
+  }
+}

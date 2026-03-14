@@ -1,0 +1,93 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "zudoku": "https://zudoku.dev/schema/",
+    "openapi": "https://spec.openapis.org/oas/v3.0/",
+    "ZudokuConfig": {
+      "@id": "zudoku:ZudokuConfig",
+      "@type": "SoftwareApplication",
+      "@context": {
+        "topNavigation": "zudoku:topNavigation",
+        "sidebar": "zudoku:sidebar",
+        "apis": "zudoku:apis",
+        "docs": "zudoku:docs",
+        "authentication": "zudoku:authentication",
+        "theme": "zudoku:theme",
+        "metadata": "zudoku:metadata",
+        "plugins": "zudoku:plugins",
+        "redirects": "zudoku:redirects",
+        "basePath": "zudoku:basePath",
+        "page": "zudoku:page"
+      }
+    },
+    "ApiReference": {
+      "@id": "zudoku:ApiReference",
+      "@type": "APIReference",
+      "@context": {
+        "type": "zudoku:referenceType",
+        "input": "zudoku:input",
+        "navigationId": "zudoku:navigationId",
+        "label": "name",
+        "serverUrl": "zudoku:serverUrl"
+      }
+    },
+    "AuthenticationConfig": {
+      "@id": "zudoku:AuthenticationConfig",
+      "@context": {
+        "type": "zudoku:authType",
+        "clientId": "zudoku:clientId",
+        "issuer": "zudoku:issuer",
+        "scopes": "zudoku:scopes",
+        "redirectUri": "zudoku:redirectUri"
+      }
+    },
+    "ThemeConfig": {
+      "@id": "zudoku:ThemeConfig",
+      "@context": {
+        "light": "zudoku:lightTheme",
+        "dark": "zudoku:darkTheme",
+        "fonts": "zudoku:fonts"
+      }
+    },
+    "Plugin": {
+      "@id": "zudoku:Plugin",
+      "@type": "SoftwareApplication",
+      "@context": {
+        "name": "name",
+        "config": "zudoku:pluginConfig"
+      }
+    },
+    "NavigationItem": {
+      "@id": "zudoku:NavigationItem",
+      "@type": "SiteNavigationElement",
+      "@context": {
+        "id": "identifier",
+        "label": "name",
+        "default": "zudoku:defaultPath"
+      }
+    },
+    "SidebarItem": {
+      "@id": "zudoku:SidebarItem",
+      "@type": "SiteNavigationElement",
+      "@context": {
+        "type": "zudoku:sidebarItemType",
+        "id": "identifier",
+        "label": "name",
+        "link": "url",
+        "items": "zudoku:childItems"
+      }
+    },
+    "name": "name",
+    "description": "description",
+    "url": "url",
+    "version": "softwareVersion",
+    "license": "license",
+    "author": "author",
+    "documentation": "documentation",
+    "apiReference": "zudoku:apiReference",
+    "openApiDocument": "zudoku:openApiDocument",
+    "playground": "zudoku:playground",
+    "search": "zudoku:search",
+    "staticSiteGeneration": "zudoku:staticSiteGeneration"
+  }
+}

@@ -1,0 +1,406 @@
+openapi: 3.0.3
+info:
+  title: Zudoku Configuration API
+  description: >-
+    Zudoku is an open-source, developer-first API documentation framework built
+    by Zuplo. This specification describes the configuration interface and
+    internal structure used by the Zudoku platform to generate interactive API
+    documentation from OpenAPI schemas. Zudoku does not expose a traditional
+    REST API; instead, it uses a file-based configuration model (zudoku.config.ts
+    or zudoku.config.tsx) to define API references, navigation, authentication,
+    theming, and plugin integrations. This OpenAPI specification documents the
+    logical configuration resources and their schemas for interoperability and
+    catalog purposes.
+  version: 1.0.0
+  contact:
+    name: Zuplo
+    url: https://zudoku.dev
+  license:
+    name: MIT
+    url: https://github.com/zuplo/zudoku/blob/main/LICENSE
+servers:
+  - url: https://zudoku.dev
+    description: Zudoku documentation site
+paths:
+  /config:
+    get:
+      operationId: getConfiguration
+      summary: Retrieve Zudoku Configuration
+      description: >-
+        Represents the top-level Zudoku configuration object defined in
+        zudoku.config.ts. This configuration drives all documentation
+        generation, theming, navigation, authentication, and API reference
+        rendering.
+      tags:
+        - Configuration
+      responses:
+        '200':
+          description: The full Zudoku configuration object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZudokuConfig'
+  /config/apis:
+    get:
+      operationId: getApiReferences
+      summary: List API References
+      description: >-
+        Returns the list of API references configured in Zudoku. Each API
+        reference points to an OpenAPI document (file or URL) used to generate
+        interactive documentation with an API playground.
+      tags:
+        - API References
+      responses:
+        '200':
+          description: A list of configured API references.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiReference'
+  /config/navigation:
+    get:
+      operationId: getNavigation
+      summary: Get Navigation Configuration
+      description: >-
+        Returns the sidebar and top navigation configuration, including page
+        links, categories, and external links that structure the documentation
+        portal.
+      tags:
+        - Navigation
+      responses:
+        '200':
+          description: The navigation configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Navigation'
+  /config/authentication:
+    get:
+      operationId: getAuthentication
+      summary: Get Authentication Configuration
+      description: >-
+        Returns the authentication provider configuration used by Zudoku to
+        enable user sign-in, API key management, and identity-based API
+        playground access. Supports OpenID Connect, OAuth2, and custom
+        providers.
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: The authentication configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationConfig'
+  /config/theme:
+    get:
+      operationId: getTheme
+      summary: Get Theme Configuration
+      description: >-
+        Returns the theming and branding configuration including colors, fonts,
+        logos, and dark mode settings that customize the look and feel of the
+        generated documentation portal.
+      tags:
+        - Theming
+      responses:
+        '200':
+          description: The theme configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThemeConfig'
+  /config/plugins:
+    get:
+      operationId: getPlugins
+      summary: List Plugins
+      description: >-
+        Returns the list of plugins configured in Zudoku, including core
+        plugins, community plugins, and custom plugins that extend the
+        platform's functionality.
+      tags:
+        - Plugins
+      responses:
+        '200':
+          description: A list of configured plugins.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Plugin'
+components:
+  schemas:
+    ZudokuConfig:
+      type: object
+      description: >-
+        The top-level Zudoku configuration object, typically defined in
+        zudoku.config.ts or zudoku.config.tsx.
+      properties:
+        topNavigation:
+          type: array
+          description: Top navigation bar items.
+          items:
+            $ref: '#/components/schemas/NavigationItem'
+        sidebar:
+          type: object
+          description: Sidebar navigation grouped by section.
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SidebarItem'
+        apis:
+          type: array
+          description: API reference configurations pointing to OpenAPI documents.
+          items:
+            $ref: '#/components/schemas/ApiReference'
+        docs:
+          type: array
+          description: MDX documentation page configurations.
+          items:
+            $ref: '#/components/schemas/DocConfig'
+        authentication:
+          $ref: '#/components/schemas/AuthenticationConfig'
+        theme:
+          $ref: '#/components/schemas/ThemeConfig'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        plugins:
+          type: array
+          description: Registered plugins.
+          items:
+            $ref: '#/components/schemas/Plugin'
+        redirects:
+          type: array
+          description: URL redirect rules.
+          items:
+            $ref: '#/components/schemas/Redirect'
+        basePath:
+          type: string
+          description: Base path for the documentation site.
+        page:
+          type: object
+          description: Page-level configuration such as logo and banner.
+          properties:
+            logo:
+              type: object
+              properties:
+                src:
+                  type: object
+                  properties:
+                    light:
+                      type: string
+                    dark:
+                      type: string
+            banner:
+              type: object
+              properties:
+                message:
+                  type: string
+                color:
+                  type: string
+    ApiReference:
+      type: object
+      description: >-
+        Configuration for an API reference that points to an OpenAPI schema
+        document. Supports file-based and URL-based references, versioning,
+        and server URL overrides.
+      required:
+        - type
+        - input
+      properties:
+        type:
+          type: string
+          enum:
+            - file
+            - url
+          description: >-
+            How the OpenAPI document is loaded. 'file' for local filesystem,
+            'url' for remote HTTP.
+        input:
+          oneOf:
+            - type: string
+              description: Path or URL to the OpenAPI document.
+            - type: array
+              items:
+                type: string
+              description: Array of file paths for versioned documentation.
+        navigationId:
+          type: string
+          description: Identifier used for sidebar navigation linking.
+        label:
+          type: string
+          description: Display label for the API reference.
+        serverUrl:
+          type: string
+          description: Override the server URL in the OpenAPI document.
+    DocConfig:
+      type: object
+      description: Configuration for MDX-based documentation pages.
+      properties:
+        files:
+          type: string
+          description: Glob pattern for MDX files to include.
+    NavigationItem:
+      type: object
+      description: A top navigation bar item.
+      properties:
+        id:
+          type: string
+          description: Unique identifier matching a sidebar or API section.
+        label:
+          type: string
+          description: Display text for the navigation item.
+        default:
+          type: string
+          description: Default path for this navigation section.
+    SidebarItem:
+      type: object
+      description: A sidebar navigation item which can be a page, link, or category.
+      properties:
+        type:
+          type: string
+          enum:
+            - page
+            - link
+            - category
+          description: The type of sidebar item.
+        id:
+          type: string
+          description: Page identifier for internal pages.
+        label:
+          type: string
+          description: Display text.
+        link:
+          type: string
+          description: URL for external links.
+        items:
+          type: array
+          description: Child items for category type.
+          items:
+            $ref: '#/components/schemas/SidebarItem'
+    AuthenticationConfig:
+      type: object
+      description: >-
+        Authentication configuration supporting OpenID Connect, OAuth2, and
+        custom authentication providers for the documentation portal and API
+        playground.
+      properties:
+        type:
+          type: string
+          enum:
+            - openid
+            - oauth2
+            - custom
+          description: The authentication provider type.
+        clientId:
+          type: string
+          description: OAuth2/OIDC client identifier.
+        issuer:
+          type: string
+          description: OIDC issuer URL.
+        scopes:
+          type: array
+          items:
+            type: string
+          description: Requested OAuth2 scopes.
+        redirectUri:
+          type: string
+          description: OAuth2 redirect URI after authentication.
+    ThemeConfig:
+      type: object
+      description: >-
+        Theme and branding configuration for customizing the look and feel
+        of the generated documentation portal.
+      properties:
+        light:
+          $ref: '#/components/schemas/ThemeColors'
+        dark:
+          $ref: '#/components/schemas/ThemeColors'
+        fonts:
+          type: object
+          properties:
+            heading:
+              type: string
+            body:
+              type: string
+            code:
+              type: string
+    ThemeColors:
+      type: object
+      description: Color palette for a theme mode.
+      properties:
+        primary:
+          type: string
+          description: Primary brand color.
+        background:
+          type: string
+          description: Background color.
+        border:
+          type: string
+          description: Border color.
+    Metadata:
+      type: object
+      description: >-
+        Site metadata for SEO and social sharing.
+      properties:
+        title:
+          type: string
+          description: Site title.
+        description:
+          type: string
+          description: Site description.
+        favicon:
+          type: string
+          description: Path to favicon.
+    Plugin:
+      type: object
+      description: >-
+        A Zudoku plugin configuration. Plugins extend the platform with
+        additional functionality such as search, analytics, and custom pages.
+      properties:
+        name:
+          type: string
+          description: Plugin name identifier.
+        config:
+          type: object
+          description: Plugin-specific configuration options.
+          additionalProperties: true
+    Redirect:
+      type: object
+      description: A URL redirect rule.
+      properties:
+        from:
+          type: string
+          description: Source path pattern.
+        to:
+          type: string
+          description: Target path.
+    Navigation:
+      type: object
+      description: Combined navigation configuration.
+      properties:
+        topNavigation:
+          type: array
+          items:
+            $ref: '#/components/schemas/NavigationItem'
+        sidebar:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SidebarItem'
+tags:
+  - name: Configuration
+    description: Top-level Zudoku configuration management.
+  - name: API References
+    description: OpenAPI document references for generating API documentation.
+  - name: Navigation
+    description: Site navigation and sidebar configuration.
+  - name: Authentication
+    description: Authentication provider configuration.
+  - name: Theming
+    description: Theme, branding, and visual customization.
+  - name: Plugins
+    description: Plugin registration and configuration.
