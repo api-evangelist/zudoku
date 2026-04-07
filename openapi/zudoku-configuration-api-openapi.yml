@@ -43,7 +43,7 @@ paths:
   /config/apis:
     get:
       operationId: getApiReferences
-      summary: List API References
+      summary: Zudoku List API References
       description: >-
         Returns the list of API references configured in Zudoku. Each API
         reference points to an OpenAPI document (file or URL) used to generate
@@ -62,7 +62,7 @@ paths:
   /config/navigation:
     get:
       operationId: getNavigation
-      summary: Get Navigation Configuration
+      summary: Zudoku Get Navigation Configuration
       description: >-
         Returns the sidebar and top navigation configuration, including page
         links, categories, and external links that structure the documentation
@@ -79,7 +79,7 @@ paths:
   /config/authentication:
     get:
       operationId: getAuthentication
-      summary: Get Authentication Configuration
+      summary: Zudoku Get Authentication Configuration
       description: >-
         Returns the authentication provider configuration used by Zudoku to
         enable user sign-in, API key management, and identity-based API
@@ -97,7 +97,7 @@ paths:
   /config/theme:
     get:
       operationId: getTheme
-      summary: Get Theme Configuration
+      summary: Zudoku Get Theme Configuration
       description: >-
         Returns the theming and branding configuration including colors, fonts,
         logos, and dark mode settings that customize the look and feel of the
@@ -114,7 +114,7 @@ paths:
   /config/plugins:
     get:
       operationId: getPlugins
-      summary: List Plugins
+      summary: Zudoku List Plugins
       description: >-
         Returns the list of plugins configured in Zudoku, including core
         plugins, community plugins, and custom plugins that extend the
