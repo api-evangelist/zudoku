@@ -392,15 +392,15 @@ components:
             items:
               $ref: '#/components/schemas/SidebarItem'
 tags:
-  - name: Configuration
-    description: Top-level Zudoku configuration management.
   - name: API References
     description: OpenAPI document references for generating API documentation.
-  - name: Navigation
-    description: Site navigation and sidebar configuration.
   - name: Authentication
     description: Authentication provider configuration.
-  - name: Theming
-    description: Theme, branding, and visual customization.
+  - name: Configuration
+    description: Top-level Zudoku configuration management.
+  - name: Navigation
+    description: Site navigation and sidebar configuration.
   - name: Plugins
     description: Plugin registration and configuration.
+  - name: Theming
+    description: Theme, branding, and visual customization.

@@ -5,9 +5,9 @@ apis:
   - aid: zudoku:configuration-api
     name: Zudoku Configuration API
     tags:
-      - Documentation
-      - Developer Tools
       - Configuration
+      - Developer Tools
+      - Documentation
     humanURL: https://zudoku.dev/docs/configuration/overview
     properties:
       - url: https://zudoku.dev/docs/configuration/overview
@@ -34,8 +34,8 @@ apis:
       theming, plugins, and MDX documentation pages are structured and managed.
 name: Zudoku
 tags:
-  - Documentation
   - Developer Tools
+  - Documentation
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
