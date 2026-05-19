@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zudoku Configuration API — API References
+  description: 'Zudoku Configuration API — API References. 1 operations. Lead operation: Zudoku List API References. Self-contained
+    Naftiko capability covering one Zudoku business surface.'
+  tags:
+  - Zudoku
+  - API References
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZUDOKU_API_KEY: ZUDOKU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: configuration-api-references
+    baseUri: https://zudoku.dev
+    description: Zudoku Configuration API — API References business capability. Self-contained, no shared references.
+    resources:
+    - name: config-apis
+      path: /config/apis
+      operations:
+      - name: getapireferences
+        method: GET
+        description: Zudoku List API References
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: configuration-api-references-rest
+    port: 8080
+    description: REST adapter for Zudoku Configuration API — API References. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/config/apis
+      name: config-apis
+      description: REST surface for config-apis.
+      operations:
+      - method: GET
+        name: getapireferences
+        description: Zudoku List API References
+        call: configuration-api-references.getapireferences
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: configuration-api-references-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zudoku Configuration API — API References. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: zudoku-list-api-references
+      description: Zudoku List API References
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: configuration-api-references.getapireferences
+      outputParameters:
+      - type: object
+        mapping: $.

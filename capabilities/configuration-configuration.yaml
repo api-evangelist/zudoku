@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zudoku Configuration API — Configuration
+  description: 'Zudoku Configuration API — Configuration. 1 operations. Lead operation: Retrieve Zudoku Configuration. Self-contained
+    Naftiko capability covering one Zudoku business surface.'
+  tags:
+  - Zudoku
+  - Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZUDOKU_API_KEY: ZUDOKU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: configuration-configuration
+    baseUri: https://zudoku.dev
+    description: Zudoku Configuration API — Configuration business capability. Self-contained, no shared references.
+    resources:
+    - name: config
+      path: /config
+      operations:
+      - name: getconfiguration
+        method: GET
+        description: Retrieve Zudoku Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: configuration-configuration-rest
+    port: 8080
+    description: REST adapter for Zudoku Configuration API — Configuration. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/config
+      name: config
+      description: REST surface for config.
+      operations:
+      - method: GET
+        name: getconfiguration
+        description: Retrieve Zudoku Configuration
+        call: configuration-configuration.getconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: configuration-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zudoku Configuration API — Configuration. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: retrieve-zudoku-configuration
+      description: Retrieve Zudoku Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: configuration-configuration.getconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

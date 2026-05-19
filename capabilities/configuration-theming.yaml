@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zudoku Configuration API — Theming
+  description: 'Zudoku Configuration API — Theming. 1 operations. Lead operation: Zudoku Get Theme Configuration. Self-contained
+    Naftiko capability covering one Zudoku business surface.'
+  tags:
+  - Zudoku
+  - Theming
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZUDOKU_API_KEY: ZUDOKU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: configuration-theming
+    baseUri: https://zudoku.dev
+    description: Zudoku Configuration API — Theming business capability. Self-contained, no shared references.
+    resources:
+    - name: config-theme
+      path: /config/theme
+      operations:
+      - name: gettheme
+        method: GET
+        description: Zudoku Get Theme Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: configuration-theming-rest
+    port: 8080
+    description: REST adapter for Zudoku Configuration API — Theming. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/config/theme
+      name: config-theme
+      description: REST surface for config-theme.
+      operations:
+      - method: GET
+        name: gettheme
+        description: Zudoku Get Theme Configuration
+        call: configuration-theming.gettheme
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: configuration-theming-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zudoku Configuration API — Theming. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: zudoku-get-theme-configuration
+      description: Zudoku Get Theme Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: configuration-theming.gettheme
+      outputParameters:
+      - type: object
+        mapping: $.
