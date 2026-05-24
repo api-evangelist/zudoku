@@ -77,6 +77,8 @@ common:
   description: 'null'
   url: https://github.com/zuplo/zudoku
   type: GitHubRepository
+- type: LLMsTxt
+  url: https://zudoku.dev/llms.txt
 created: '2026-01-05'
 modified: '2026-05-19'
 position: Consuming
