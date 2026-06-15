@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zudoku Configuration API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Zudoku Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config"
+          },
+          "docs": "Represents the top-level Zudoku configuration object defined in zudoku.config.ts. This configuration drives all documentation generation, theming, navigation, authentication, and API reference rendering."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "API References",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku List API References",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/apis"
+          },
+          "docs": "Returns the list of API references configured in Zudoku. Each API reference points to an OpenAPI document (file or URL) used to generate interactive documentation with an API playground."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Navigation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku Get Navigation Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/navigation"
+          },
+          "docs": "Returns the sidebar and top navigation configuration, including page links, categories, and external links that structure the documentation portal."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku Get Authentication Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/authentication"
+          },
+          "docs": "Returns the authentication provider configuration used by Zudoku to enable user sign-in, API key management, and identity-based API playground access. Supports OpenID Connect, OAuth2, and custom providers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Theming",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku Get Theme Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/theme"
+          },
+          "docs": "Returns the theming and branding configuration including colors, fonts, logos, and dark mode settings that customize the look and feel of the generated documentation portal."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Plugins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku List Plugins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/plugins"
+          },
+          "docs": "Returns the list of plugins configured in Zudoku, including core plugins, community plugins, and custom plugins that extend the platform's functionality."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

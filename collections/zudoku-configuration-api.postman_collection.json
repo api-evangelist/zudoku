@@ -1,0 +1,517 @@
+{
+  "item": [
+    {
+      "id": "297c33e9-1d72-44cc-9329-a891b7843742",
+      "name": "API References",
+      "description": {
+        "content": "OpenAPI document references for generating API documentation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a1f86fe-b917-4e52-a4fa-a934ed385858",
+          "name": "Zudoku List API References",
+          "request": {
+            "name": "Zudoku List API References",
+            "description": {
+              "content": "Returns the list of API references configured in Zudoku. Each API reference points to an OpenAPI document (file or URL) used to generate interactive documentation with an API playground.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "apis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a53dd28-ef22-4b2d-a27a-c4fa6d5f1853",
+              "name": "A list of configured API references.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"file\",\n    \"input\": \"string\",\n    \"navigationId\": \"string\",\n    \"label\": \"string\",\n    \"serverUrl\": \"string\"\n  },\n  {\n    \"type\": \"url\",\n    \"input\": \"string\",\n    \"navigationId\": \"string\",\n    \"label\": \"string\",\n    \"serverUrl\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2f254580-4207-4aa6-b24e-05315ef267f9",
+      "name": "Authentication",
+      "description": {
+        "content": "Authentication provider configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4d30972d-e2f3-47e5-9a3d-497917577019",
+          "name": "Zudoku Get Authentication Configuration",
+          "request": {
+            "name": "Zudoku Get Authentication Configuration",
+            "description": {
+              "content": "Returns the authentication provider configuration used by Zudoku to enable user sign-in, API key management, and identity-based API playground access. Supports OpenID Connect, OAuth2, and custom providers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "authentication"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96e9f284-a444-46fd-b3b0-3a7cbe5940a1",
+              "name": "The authentication configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "authentication"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"openid\",\n  \"clientId\": \"string\",\n  \"issuer\": \"string\",\n  \"scopes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"redirectUri\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "64e2c0ea-063b-431e-a1ff-90690d7d9b5f",
+      "name": "Configuration",
+      "description": {
+        "content": "Top-level Zudoku configuration management.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7029fabf-a164-4b50-84cc-7d1326c09955",
+          "name": "Retrieve Zudoku Configuration",
+          "request": {
+            "name": "Retrieve Zudoku Configuration",
+            "description": {
+              "content": "Represents the top-level Zudoku configuration object defined in zudoku.config.ts. This configuration drives all documentation generation, theming, navigation, authentication, and API reference rendering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f84c7ec-a42e-4611-a7f2-b225c99d5055",
+              "name": "The full Zudoku configuration object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"topNavigation\": [\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"default\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"default\": \"string\"\n    }\n  ],\n  \"sidebar\": {\n    \"key_0\": [\n      {\n        \"type\": \"link\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      },\n      {\n        \"type\": \"page\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"apis\": [\n    {\n      \"type\": \"url\",\n      \"input\": \"string\",\n      \"navigationId\": \"string\",\n      \"label\": \"string\",\n      \"serverUrl\": \"string\"\n    },\n    {\n      \"type\": \"url\",\n      \"input\": \"string\",\n      \"navigationId\": \"string\",\n      \"label\": \"string\",\n      \"serverUrl\": \"string\"\n    }\n  ],\n  \"docs\": [\n    {\n      \"files\": \"string\"\n    },\n    {\n      \"files\": \"string\"\n    }\n  ],\n  \"authentication\": {\n    \"type\": \"openid\",\n    \"clientId\": \"string\",\n    \"issuer\": \"string\",\n    \"scopes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"redirectUri\": \"string\"\n  },\n  \"theme\": {\n    \"light\": {\n      \"primary\": \"string\",\n      \"background\": \"string\",\n      \"border\": \"string\"\n    },\n    \"dark\": {\n      \"primary\": \"string\",\n      \"background\": \"string\",\n      \"border\": \"string\"\n    },\n    \"fonts\": {\n      \"heading\": \"string\",\n      \"body\": \"string\",\n      \"code\": \"string\"\n    }\n  },\n  \"metadata\": {\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"favicon\": \"string\"\n  },\n  \"plugins\": [\n    {\n      \"name\": \"string\",\n      \"config\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"config\": {\n        \"key_0\": 9268\n      }\n    }\n  ],\n  \"redirects\": [\n    {\n      \"from\": \"string\",\n      \"to\": \"string\"\n    },\n    {\n      \"from\": \"string\",\n      \"to\": \"string\"\n    }\n  ],\n  \"basePath\": \"string\",\n  \"page\": {\n    \"logo\": {\n      \"src\": {\n        \"light\": \"string\",\n        \"dark\": \"string\"\n      }\n    },\n    \"banner\": {\n      \"message\": \"string\",\n      \"color\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "63480db4-08bf-474e-8c6b-39b821449dca",
+      "name": "Navigation",
+      "description": {
+        "content": "Site navigation and sidebar configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "086ab007-295f-40c7-b412-d310ac7568ec",
+          "name": "Zudoku Get Navigation Configuration",
+          "request": {
+            "name": "Zudoku Get Navigation Configuration",
+            "description": {
+              "content": "Returns the sidebar and top navigation configuration, including page links, categories, and external links that structure the documentation portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "navigation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46287956-f231-4485-b77f-0121f72bd383",
+              "name": "The navigation configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "navigation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"topNavigation\": [\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"default\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"default\": \"string\"\n    }\n  ],\n  \"sidebar\": {\n    \"key_0\": [\n      {\n        \"type\": \"link\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      },\n      {\n        \"type\": \"page\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      }\n    ],\n    \"key_1\": [\n      {\n        \"type\": \"category\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      },\n      {\n        \"type\": \"link\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      }\n    ],\n    \"key_2\": [\n      {\n        \"type\": \"category\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      },\n      {\n        \"type\": \"page\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "00b5af5b-0023-49ce-979f-fc50d211319f",
+      "name": "Plugins",
+      "description": {
+        "content": "Plugin registration and configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9825b1a3-b88f-433c-9d97-9a4726186eb2",
+          "name": "Zudoku List Plugins",
+          "request": {
+            "name": "Zudoku List Plugins",
+            "description": {
+              "content": "Returns the list of plugins configured in Zudoku, including core plugins, community plugins, and custom plugins that extend the platform's functionality.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d85877b-7473-4fc6-8cb8-cda12a6e5b6a",
+              "name": "A list of configured plugins.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"config\": {\n      \"key_0\": \"string\",\n      \"key_1\": 7680,\n      \"key_2\": true\n    }\n  },\n  {\n    \"name\": \"string\",\n    \"config\": {\n      \"key_0\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "99af9653-c937-460c-a2dc-9fa69599847c",
+      "name": "Theming",
+      "description": {
+        "content": "Theme, branding, and visual customization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f66570f2-1e29-447a-9ae9-0fd4fed45299",
+          "name": "Zudoku Get Theme Configuration",
+          "request": {
+            "name": "Zudoku Get Theme Configuration",
+            "description": {
+              "content": "Returns the theming and branding configuration including colors, fonts, logos, and dark mode settings that customize the look and feel of the generated documentation portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "theme"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b37f7ee4-cc1e-4593-b842-4ecfb34e3ef6",
+              "name": "The theme configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "theme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"light\": {\n    \"primary\": \"string\",\n    \"background\": \"string\",\n    \"border\": \"string\"\n  },\n  \"dark\": {\n    \"primary\": \"string\",\n    \"background\": \"string\",\n    \"border\": \"string\"\n  },\n  \"fonts\": {\n    \"heading\": \"string\",\n    \"body\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://zudoku.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "50df650e-5782-47ff-9a9b-70e26c24f8ac",
+    "name": "Zudoku Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.\n\nContact Support:\n Name: Zuplo",
+      "type": "text/plain"
+    }
+  }
+}
