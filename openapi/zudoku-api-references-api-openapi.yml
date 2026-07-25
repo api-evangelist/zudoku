@@ -1,0 +1,66 @@
+openapi: 3.0.3
+info:
+  title: Zudoku Configuration API References API
+  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.
+  version: 1.0.0
+  contact:
+    name: Zuplo
+    url: https://zudoku.dev
+  license:
+    name: MIT
+    url: https://github.com/zuplo/zudoku/blob/main/LICENSE
+servers:
+- url: https://zudoku.dev
+  description: Zudoku documentation site
+tags:
+- name: API References
+  description: OpenAPI document references for generating API documentation.
+paths:
+  /config/apis:
+    get:
+      operationId: getApiReferences
+      summary: Zudoku List API References
+      description: Returns the list of API references configured in Zudoku. Each API reference points to an OpenAPI document (file or URL) used to generate interactive documentation with an API playground.
+      tags:
+      - API References
+      responses:
+        '200':
+          description: A list of configured API references.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiReference'
+components:
+  schemas:
+    ApiReference:
+      type: object
+      description: Configuration for an API reference that points to an OpenAPI schema document. Supports file-based and URL-based references, versioning, and server URL overrides.
+      required:
+      - type
+      - input
+      properties:
+        type:
+          type: string
+          enum:
+          - file
+          - url
+          description: How the OpenAPI document is loaded. 'file' for local filesystem, 'url' for remote HTTP.
+        input:
+          oneOf:
+          - type: string
+            description: Path or URL to the OpenAPI document.
+          - type: array
+            items:
+              type: string
+            description: Array of file paths for versioned documentation.
+        navigationId:
+          type: string
+          description: Identifier used for sidebar navigation linking.
+        label:
+          type: string
+          description: Display label for the API reference.
+        serverUrl:
+          type: string
+          description: Override the server URL in the OpenAPI document.

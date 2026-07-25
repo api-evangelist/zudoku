@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Zudoku Configuration API References Navigation API
+  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.
+  version: 1.0.0
+  contact:
+    name: Zuplo
+    url: https://zudoku.dev
+  license:
+    name: MIT
+    url: https://github.com/zuplo/zudoku/blob/main/LICENSE
+servers:
+- url: https://zudoku.dev
+  description: Zudoku documentation site
+tags:
+- name: Navigation
+  description: Site navigation and sidebar configuration.
+paths:
+  /config/navigation:
+    get:
+      operationId: getNavigation
+      summary: Zudoku Get Navigation Configuration
+      description: Returns the sidebar and top navigation configuration, including page links, categories, and external links that structure the documentation portal.
+      tags:
+      - Navigation
+      responses:
+        '200':
+          description: The navigation configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Navigation'
+components:
+  schemas:
+    SidebarItem:
+      type: object
+      description: A sidebar navigation item which can be a page, link, or category.
+      properties:
+        type:
+          type: string
+          enum:
+          - page
+          - link
+          - category
+          description: The type of sidebar item.
+        id:
+          type: string
+          description: Page identifier for internal pages.
+        label:
+          type: string
+          description: Display text.
+        link:
+          type: string
+          description: URL for external links.
+        items:
+          type: array
+          description: Child items for category type.
+          items:
+            $ref: '#/components/schemas/SidebarItem'
+    Navigation:
+      type: object
+      description: Combined navigation configuration.
+      properties:
+        topNavigation:
+          type: array
+          items:
+            $ref: '#/components/schemas/NavigationItem'
+        sidebar:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SidebarItem'
+    NavigationItem:
+      type: object
+      description: A top navigation bar item.
+      properties:
+        id:
+          type: string
+          description: Unique identifier matching a sidebar or API section.
+        label:
+          type: string
+          description: Display text for the navigation item.
+        default:
+          type: string
+          description: Default path for this navigation section.

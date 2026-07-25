@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: Zudoku Configuration API References Authentication API
+  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.
+  version: 1.0.0
+  contact:
+    name: Zuplo
+    url: https://zudoku.dev
+  license:
+    name: MIT
+    url: https://github.com/zuplo/zudoku/blob/main/LICENSE
+servers:
+- url: https://zudoku.dev
+  description: Zudoku documentation site
+tags:
+- name: Authentication
+  description: Authentication provider configuration.
+paths:
+  /config/authentication:
+    get:
+      operationId: getAuthentication
+      summary: Zudoku Get Authentication Configuration
+      description: Returns the authentication provider configuration used by Zudoku to enable user sign-in, API key management, and identity-based API playground access. Supports OpenID Connect, OAuth2, and custom providers.
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: The authentication configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationConfig'
+components:
+  schemas:
+    AuthenticationConfig:
+      type: object
+      description: Authentication configuration supporting OpenID Connect, OAuth2, and custom authentication providers for the documentation portal and API playground.
+      properties:
+        type:
+          type: string
+          enum:
+          - openid
+          - oauth2
+          - custom
+          description: The authentication provider type.
+        clientId:
+          type: string
+          description: OAuth2/OIDC client identifier.
+        issuer:
+          type: string
+          description: OIDC issuer URL.
+        scopes:
+          type: array
+          items:
+            type: string
+          description: Requested OAuth2 scopes.
+        redirectUri:
+          type: string
+          description: OAuth2 redirect URI after authentication.

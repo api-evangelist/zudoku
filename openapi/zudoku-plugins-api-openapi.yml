@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  title: Zudoku Configuration API References Plugins API
+  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.
+  version: 1.0.0
+  contact:
+    name: Zuplo
+    url: https://zudoku.dev
+  license:
+    name: MIT
+    url: https://github.com/zuplo/zudoku/blob/main/LICENSE
+servers:
+- url: https://zudoku.dev
+  description: Zudoku documentation site
+tags:
+- name: Plugins
+  description: Plugin registration and configuration.
+paths:
+  /config/plugins:
+    get:
+      operationId: getPlugins
+      summary: Zudoku List Plugins
+      description: Returns the list of plugins configured in Zudoku, including core plugins, community plugins, and custom plugins that extend the platform's functionality.
+      tags:
+      - Plugins
+      responses:
+        '200':
+          description: A list of configured plugins.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Plugin'
+components:
+  schemas:
+    Plugin:
+      type: object
+      description: A Zudoku plugin configuration. Plugins extend the platform with additional functionality such as search, analytics, and custom pages.
+      properties:
+        name:
+          type: string
+          description: Plugin name identifier.
+        config:
+          type: object
+          description: Plugin-specific configuration options.
+          additionalProperties: true
