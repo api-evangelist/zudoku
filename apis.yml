@@ -1,41 +1,98 @@
 aid: zudoku
 url: https://raw.githubusercontent.com/api-evangelist/zudoku/refs/heads/main/apis.yml
 apis:
-  - aid: zudoku:configuration-api
-    name: Zudoku Configuration API
-    tags:
-      - Configuration
-      - Developer Tools
-      - Documentation
-    humanURL: https://zudoku.dev/docs/configuration/overview
-    properties:
-      - url: https://zudoku.dev/docs/configuration/overview
-        type: Documentation
-      - url: openapi/zudoku-configuration-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/zudoku-config.json
-        type: JSONSchema
-      - url: json-schema/api-reference.json
-        type: JSONSchema
-      - url: json-schema/authentication.json
-        type: JSONSchema
-      - url: json-schema/theme.json
-        type: JSONSchema
-      - url: json-schema/plugin.json
-        type: JSONSchema
-      - url: json-ld/zudoku-context.jsonld
-        type: JSONLD
-    description: >-
-      Zudoku is an open-source, developer-first API documentation framework built by Zuplo. It uses a file-based
-      configuration model (zudoku.config.ts) to generate interactive API documentation from OpenAPI v2/v3 schemas. The
-      configuration API defines how API references, navigation, authentication (OAuth2, OpenID Connect), theming,
-      plugins, and MDX documentation pages are structured and managed.
+- aid: zudoku:configuration-api
+  name: Zudoku Configuration API
+  tags:
+  - Configuration
+  - Developer Tools
+  - Documentation
+  humanURL: https://zudoku.dev/docs/configuration/overview
+  properties:
+  - url: https://zudoku.dev/docs/configuration/overview
+    type: Documentation
+  - url: openapi/zudoku-configuration-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/zudoku-config.json
+    type: JSONSchema
+  - url: json-schema/api-reference.json
+    type: JSONSchema
+  - url: json-schema/authentication.json
+    type: JSONSchema
+  - url: json-schema/theme.json
+    type: JSONSchema
+  - url: json-schema/plugin.json
+    type: JSONSchema
+  - url: json-ld/zudoku-context.jsonld
+    type: JSONLD
+  description: >-
+    Zudoku is an open-source, developer-first API documentation framework built by Zuplo. It uses a file-based
+    configuration model (zudoku.config.ts) to generate interactive API documentation from OpenAPI v2/v3
+    schemas. The configuration API defines how API references, navigation, authentication (OAuth2, OpenID
+    Connect), theming, plugins, and MDX documentation pages are structured and managed.
+- aid: zudoku:zudoku-api-references-api
+  name: Zudoku API References API
+  description: OpenAPI document references for generating API documentation.
+  humanURL: https://zudoku.dev/docs/configuration/overview
+  tags:
+  - API References
+  properties:
+  - type: OpenAPI
+    url: openapi/zudoku-api-references-api-openapi.yml
+- aid: zudoku:zudoku-authentication-api
+  name: Zudoku Authentication API
+  description: Authentication provider configuration.
+  humanURL: https://zudoku.dev/docs/configuration/overview
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/zudoku-authentication-api-openapi.yml
+- aid: zudoku:zudoku-navigation-api
+  name: Zudoku Navigation API
+  description: Site navigation and sidebar configuration.
+  humanURL: https://zudoku.dev/docs/configuration/overview
+  tags:
+  - Navigation
+  properties:
+  - type: OpenAPI
+    url: openapi/zudoku-navigation-api-openapi.yml
+- aid: zudoku:zudoku-plugins-api
+  name: Zudoku Plugins API
+  description: Plugin registration and configuration.
+  humanURL: https://zudoku.dev/docs/configuration/overview
+  tags:
+  - Plugins
+  properties:
+  - type: OpenAPI
+    url: openapi/zudoku-plugins-api-openapi.yml
+- aid: zudoku:zudoku-theming-api
+  name: Zudoku Theming API
+  description: Theme, branding, and visual customization.
+  humanURL: https://zudoku.dev/docs/configuration/overview
+  tags:
+  - Theming
+  properties:
+  - type: OpenAPI
+    url: openapi/zudoku-theming-api-openapi.yml
 name: Zudoku
 tags:
   - Developer Tools
   - Documentation
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zudoku.png
 access: 3rd-Party
 common:
   - type: AgenticAccess
