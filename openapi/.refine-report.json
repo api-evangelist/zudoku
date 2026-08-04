@@ -1,0 +1,24 @@
+{
+  "provider": "zudoku",
+  "sources": [
+    "zudoku-api-references-api-openapi.yml",
+    "zudoku-authentication-api-openapi.yml",
+    "zudoku-configuration-api-openapi.yml",
+    "zudoku-navigation-api-openapi.yml",
+    "zudoku-plugins-api-openapi.yml",
+    "zudoku-theming-api-openapi.yml"
+  ],
+  "outputs": [
+    "zudoku-api-references-api-openapi.yml",
+    "zudoku-authentication-api-openapi.yml",
+    "zudoku-configuration-api-openapi.yml",
+    "zudoku-navigation-api-openapi.yml",
+    "zudoku-plugins-api-openapi.yml",
+    "zudoku-theming-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
