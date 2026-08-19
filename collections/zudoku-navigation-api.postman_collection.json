@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "7ce36251-8234-4de2-94cd-d9e20e6ffcb5",
+      "name": "Navigation",
+      "description": {
+        "content": "Site navigation and sidebar configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87c6f50a-78c3-497e-a549-a7adf3c1317d",
+          "name": "Zudoku Get Navigation Configuration",
+          "request": {
+            "name": "Zudoku Get Navigation Configuration",
+            "description": {
+              "content": "Returns the sidebar and top navigation configuration, including page links, categories, and external links that structure the documentation portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "navigation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b6a496d-275b-4c5a-baff-401a63c16728",
+              "name": "The navigation configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "navigation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"topNavigation\": [\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"default\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"default\": \"string\"\n    }\n  ],\n  \"sidebar\": {\n    \"key_0\": [\n      {\n        \"type\": \"page\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      },\n      {\n        \"type\": \"page\",\n        \"id\": \"string\",\n        \"label\": \"string\",\n        \"link\": \"string\",\n        \"items\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/SidebarItem detected>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://zudoku.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "146a3362-7af3-4fdf-b2d4-6b448fe8ee9e",
+    "name": "Zudoku Configuration API References Navigation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.\n\nContact Support:\n Name: Zuplo",
+      "type": "text/plain"
+    }
+  }
+}

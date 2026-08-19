@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "d32f14e2-68b1-4f8a-a157-dd0456507d07",
+      "name": "Plugins",
+      "description": {
+        "content": "Plugin registration and configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eaef921f-93ce-461b-8a6b-c1b38d7a951d",
+          "name": "Zudoku List Plugins",
+          "request": {
+            "name": "Zudoku List Plugins",
+            "description": {
+              "content": "Returns the list of plugins configured in Zudoku, including core plugins, community plugins, and custom plugins that extend the platform's functionality.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "470652c2-fa34-4a49-8dcc-c2ee073d12fd",
+              "name": "A list of configured plugins.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"config\": {\n      \"key_0\": false,\n      \"key_1\": 2078.688304187948,\n      \"key_2\": 6667.8986708905595\n    }\n  },\n  {\n    \"name\": \"string\",\n    \"config\": {\n      \"key_0\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://zudoku.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b98c505c-8654-4d9f-8641-763f11f08484",
+    "name": "Zudoku Configuration API References Plugins API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.\n\nContact Support:\n Name: Zuplo",
+      "type": "text/plain"
+    }
+  }
+}

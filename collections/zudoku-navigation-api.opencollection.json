@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zudoku Configuration API References Navigation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Navigation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku Get Navigation Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/navigation"
+          },
+          "docs": "Returns the sidebar and top navigation configuration, including page links, categories, and external links that structure the documentation portal."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

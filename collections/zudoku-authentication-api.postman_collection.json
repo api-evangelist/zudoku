@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "24451012-1c78-4eb1-b876-028f357a8589",
+      "name": "Authentication",
+      "description": {
+        "content": "Authentication provider configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07de0049-7109-4fe8-81ca-cdf56075322d",
+          "name": "Zudoku Get Authentication Configuration",
+          "request": {
+            "name": "Zudoku Get Authentication Configuration",
+            "description": {
+              "content": "Returns the authentication provider configuration used by Zudoku to enable user sign-in, API key management, and identity-based API playground access. Supports OpenID Connect, OAuth2, and custom providers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "authentication"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e040a425-54ab-409a-abbd-52bae32722d2",
+              "name": "The authentication configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "authentication"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"oauth2\",\n  \"clientId\": \"string\",\n  \"issuer\": \"string\",\n  \"scopes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"redirectUri\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://zudoku.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "50221cdf-1571-4ba9-842f-88f349a66f38",
+    "name": "Zudoku Configuration API References Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.\n\nContact Support:\n Name: Zuplo",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "92864e92-1843-4603-ba04-a1df1fc333e0",
+      "name": "API References",
+      "description": {
+        "content": "OpenAPI document references for generating API documentation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4724d6a1-5246-4172-89dd-859cbfe8cb56",
+          "name": "Zudoku List API References",
+          "request": {
+            "name": "Zudoku List API References",
+            "description": {
+              "content": "Returns the list of API references configured in Zudoku. Each API reference points to an OpenAPI document (file or URL) used to generate interactive documentation with an API playground.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "apis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbb4b1e2-dd86-4450-bfb2-f82a7ecda7a7",
+              "name": "A list of configured API references.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"file\",\n    \"input\": \"string\",\n    \"navigationId\": \"string\",\n    \"label\": \"string\",\n    \"serverUrl\": \"string\"\n  },\n  {\n    \"type\": \"url\",\n    \"input\": \"string\",\n    \"navigationId\": \"string\",\n    \"label\": \"string\",\n    \"serverUrl\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://zudoku.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a2a084bc-d7fa-4eb9-a72f-770059a45807",
+    "name": "Zudoku Configuration API References API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.\n\nContact Support:\n Name: Zuplo",
+      "type": "text/plain"
+    }
+  }
+}

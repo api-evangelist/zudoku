@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zudoku Configuration API References API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "API References",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku List API References",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/apis"
+          },
+          "docs": "Returns the list of API references configured in Zudoku. Each API reference points to an OpenAPI document (file or URL) used to generate interactive documentation with an API playground."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

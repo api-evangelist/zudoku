@@ -1,0 +1,103 @@
+# Documentation
+
+> Documentation files for Large Language Models
+
+## Documentation
+
+- [Writing](/docs/writing.md): A guide to writing documentation in Zudoku using Markdown and MDX.
+- [Quickstart](/docs/quickstart.md): Get started with Zudoku by creating a new Zudoku app using the `create-zudoku` tool.
+- [Zudoku Plugins](/docs/plugins.md)
+- [Deploying Zudoku](/docs/deployment.md)
+- [Custom Plugins](/docs/custom-plugins.md)
+- [Markdown](/docs/markdown/overview.md): Comprehensive guide to using Markdown and MDX in Zudoku, including formatting, frontmatter, syntax highlighting, tables, lists, task lists, collapsible sections, and advanced documentation features.
+- [MDX](/docs/markdown/mdx.md): Learn how to use MDX in Zudoku to create rich documentation pages with markdown and custom React components.
+- [Frontmatter](/docs/markdown/frontmatter.md): Learn how to use YAML frontmatter in Zudoku markdown files to customize page titles, descriptions, navigation, and other document properties.
+- [Code Blocks](/docs/markdown/code-blocks.md): Learn how to use code blocks, syntax highlighting, and advanced features like line highlighting and ANSI output in Zudoku Markdown with Shiki.
+- [Admonitions](/docs/markdown/admonitions.md): Learn how to use admonitions (callouts) in Markdown, including syntax, types, titles, and formatting tips for compatibility with Prettier.
+- [x-zudoku-playground-enabled](/docs/openapi-extensions/x-zudoku-playground-enabled.md)
+- [x-zudoku-collapsible](/docs/openapi-extensions/x-zudoku-collapsible.md)
+- [x-zudoku-collapsed](/docs/openapi-extensions/x-zudoku-collapsed.md)
+- [x-tagGroups](/docs/openapi-extensions/x-tag-groups.md)
+- [x-mcp](/docs/openapi-extensions/x-mcp.md)
+- [x-mcp-server](/docs/openapi-extensions/x-mcp-server.md)
+- [x-displayName](/docs/openapi-extensions/x-display-name.md)
+- [x-code-samples](/docs/openapi-extensions/x-code-samples.md)
+- [Multiple APIs](/docs/guides/using-multiple-apis.md)
+- [Transforming Operation Examples](/docs/guides/transforming-examples.md)
+- [Static Files](/docs/guides/static-files.md): Learn how to serve and reference static files like images and PDFs in your Zudoku documentation using the public directory.
+- [Server-side Content Protection](/docs/guides/server-side-content-protection.md): How Zudoku isolates protected-route content at build time in SSR mode. Covers the auto-detection rules, caveats for dynamic routes and inline content, and a pre-ship checklist.
+- [Redirects](/docs/guides/redirects.md): Configure URL redirects in your Zudoku developer portal to set landing pages, maintain backward compatibility, and handle URL changes. Covers redirect behavior, basePath interaction, and troubleshooting.
+- [/docs/guides/processors](/docs/guides/processors.md)
+- [Navigation Rules](/docs/guides/navigation-rules.md)
+- [Navigation Migration](/docs/guides/navigation-migration.md)
+- [Mermaid Diagrams](/docs/guides/mermaid.md)
+- [Documenting MCP Servers](/docs/guides/mcp-servers.md)
+- [Managing API Keys and Identities](/docs/guides/managing-api-keys-and-identities.md)
+- [Environment Variables](/docs/guides/environment-variables.md)
+- [Custom pages](/docs/guides/custom-pages.md)
+- [Hooks](/docs/extending/hooks.md): Reference for the React hooks exported by Zudoku.
+- [Events](/docs/extending/events.md)
+- [Zuplo](/docs/deploy/zuplo.md)
+- [Vercel](/docs/deploy/vercel.md)
+- [GitHub Pages](/docs/deploy/github-pages.md)
+- [Upload/FTP](/docs/deploy/direct-upload.md)
+- [Cloudflare Pages](/docs/deploy/cloudflare-pages.md)
+- [Apache & Nginx](/docs/deploy/apache-nginx.md)
+- [Font & Typography](/docs/customization/fonts.md): Learn how to customize fonts and typography in Zudoku using predefined Google Fonts, custom font URLs, or local fonts for sans, serif, and monospace text.
+- [Colors & Theme](/docs/customization/colors-theme.md): Customize your Zudoku site's colors and theme with flexible options, including light/dark modes, custom CSS, and shadcn registry integration.
+- [Vite Config](/docs/configuration/vite-config.md)
+- [Slots](/docs/configuration/slots.md): Learn how to use slots to inject custom content into predefined locations throughout your Zudoku site.
+- [/docs/configuration/site](/docs/configuration/site.md): Customize your Zudoku site's branding, logo, banner, and layout options with detailed configuration examples and guidance.
+- [/docs/configuration/sentry](/docs/configuration/sentry.md)
+- [Search](/docs/configuration/search.md): Learn how to configure and customize search functionality in Zudoku, including setup instructions for Pagefind and Inkeep providers, result transformation, and ranking options.
+- [Protected Routes](/docs/configuration/protected-routes.md): Learn how to protect specific routes in your documentation using authentication, including simple array patterns, advanced authorization with reason codes, and custom callback functions.
+- [Configuration File](/docs/configuration/overview.md): Learn how to configure your Zudoku documentation site using the configuration file. Covers file formats, options, examples, and best practices.
+- [OAuth Security Schemes](/docs/configuration/oauth-security-schemes.md)
+- [Navigation](/docs/configuration/navigation.md): Learn how to configure the navigation in Zudoku, including links, categories, documents, and custom pages. Understand the structure of the navigation array and how to use icons, labels, and paths.
+- [LLM-Friendly Documentation Export](/docs/configuration/llms.md)
+- [/docs/configuration/footer](/docs/configuration/footer.md): Learn how to configure the footer in Zudoku, including columns, social links, copyright notice, and logo. Customize the footer's position and content with slots.
+- [Documentation](/docs/configuration/docs.md)
+- [/docs/configuration/build-configuration](/docs/configuration/build-configuration.md)
+- [Overview](/docs/configuration/authentication.md)
+- [Supabase Setup](/docs/configuration/authentication-supabase.md): Learn how to set up Supabase authentication for Zudoku using email and password or OAuth providers for secure documentation access.
+- [PingFederate Setup](/docs/configuration/authentication-pingfederate.md): Learn how to set up PingFederate authentication for Zudoku using OpenID Connect for enterprise-grade single sign-on.
+- [OpenID Connect (OIDC)](/docs/configuration/authentication-openid.md): Configure any OpenID Connect compliant identity provider (Okta, Keycloak, Authentik, etc.) as the authentication provider for Zudoku.
+- [Firebase Setup](/docs/configuration/authentication-firebase.md): Learn how to set up Firebase Authentication for Zudoku, leveraging Google's secure authentication infrastructure with multiple sign-in providers.
+- [Clerk Setup](/docs/configuration/authentication-clerk.md): Learn how to set up Clerk authentication for Zudoku, providing a seamless authentication experience with modern UI components and extensive customization options.
+- [Azure AD Setup](/docs/configuration/authentication-azure-ad.md): Learn how to set up Azure Active Directory (Microsoft Entra ID) authentication for Zudoku, enabling secure single sign-on for your organization.
+- [Auth0 Setup](/docs/configuration/authentication-auth0.md): Learn how to set up Auth0 authentication for Zudoku, including application configuration and integration steps for secure API documentation access.
+- [API Reference](/docs/configuration/api-reference.md): Learn how to configure the `apis` setting in Zudoku to generate API reference documentation from OpenAPI files, including file and URL references, versioning, customization options, and OpenAPI extensions.
+- [API Catalog](/docs/configuration/api-catalog.md)
+- [AI Assistants](/docs/configuration/ai-assistants.md): Configure which AI assistant integrations appear in dropdown menus across your Zudoku documentation site, including built-in presets and custom providers.
+- [Authentication Providers & API Identities](/docs/concepts/auth-provider-api-identities.md)
+- [Typography](/docs/components/typography.md)
+- [Tooltip](/docs/components/tooltip.md)
+- [Textarea](/docs/components/textarea.md)
+- [Syntax Highlight](/docs/components/syntax-highlight.md)
+- [Switch](/docs/components/switch.md)
+- [Stepper](/docs/components/stepper.md)
+- [Slot](/docs/components/slot.md): Use the low-level Slot component for advanced slot management in custom pages and MDX content.
+- [Slider](/docs/components/slider.md)
+- [Sidecar Box](/docs/components/sidecar-box.md)
+- [/docs/components/shadcn](/docs/components/shadcn.md)
+- [Select](/docs/components/select.md)
+- [Secret](/docs/components/secret.md): Use the Secret component to display and manage API keys in your Zudoku application.
+- [API Playground](/docs/components/playground.md)
+- [Mermaid](/docs/components/mermaid.md): Render Mermaid diagrams dynamically with client-side rendering.
+- [Markdown](/docs/components/markdown.md)
+- [Link](/docs/components/link.md)
+- [Landing Page](/docs/components/landing-page.md)
+- [Label](/docs/components/label.md)
+- [Input](/docs/components/input.md)
+- [Icons](/docs/components/icons.md)
+- [Head](/docs/components/head.md)
+- [Dialog](/docs/components/dialog.md)
+- [CodeTabs](/docs/components/code-tabs.md)
+- [ClientOnly](/docs/components/client-only.md)
+- [Checkbox](/docs/components/checkbox.md)
+- [Card](/docs/components/card.md)
+- [Callout](/docs/components/callout.md)
+- [Button](/docs/components/button.md)
+- [Browser Window](/docs/components/browser-window.md)
+- [Badge](/docs/components/badge.md)
+- [Alert](/docs/components/alert.md)

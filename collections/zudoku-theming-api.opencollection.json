@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zudoku Configuration API References Theming API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Theming",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku Get Theme Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/theme"
+          },
+          "docs": "Returns the theming and branding configuration including colors, fonts, logos, and dark mode settings that customize the look and feel of the generated documentation portal."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

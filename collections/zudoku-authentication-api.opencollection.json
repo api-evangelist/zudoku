@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zudoku Configuration API References Authentication API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku Get Authentication Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/authentication"
+          },
+          "docs": "Returns the authentication provider configuration used by Zudoku to enable user sign-in, API key management, and identity-based API playground access. Supports OpenID Connect, OAuth2, and custom providers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

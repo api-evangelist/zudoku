@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zudoku Configuration API References Plugins API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plugins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zudoku List Plugins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://zudoku.dev/config/plugins"
+          },
+          "docs": "Returns the list of plugins configured in Zudoku, including core plugins, community plugins, and custom plugins that extend the platform's functionality."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
