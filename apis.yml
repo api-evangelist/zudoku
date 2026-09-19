@@ -35,6 +35,8 @@ apis:
   description: OpenAPI document references for generating API documentation.
   humanURL: https://zudoku.dev/docs/configuration/overview
   tags:
+  - API Reference
+  tags_raw:
   - API References
   properties:
   - type: OpenAPI
