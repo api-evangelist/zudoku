@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Zudoku Configuration API References Plugins API
-  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.
+  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo.
   version: 1.0.0
   contact:
     name: Zuplo

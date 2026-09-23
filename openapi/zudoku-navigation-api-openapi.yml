@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Zudoku Configuration API References Navigation API
-  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo. This specification describes the configuration interface and internal structure used by the Zudoku platform to generate interactive API documentation from OpenAPI schemas. Zudoku does not expose a traditional REST API; instead, it uses a file-based configuration model (zudoku.config.ts or zudoku.config.tsx) to define API references, navigation, authentication, theming, and plugin integrations. This OpenAPI specification documents the logical configuration resources and their schemas for interoperability and catalog purposes.
+  description: Zudoku is an open-source, developer-first API documentation framework built by Zuplo.
   version: 1.0.0
   contact:
     name: Zuplo
@@ -32,31 +32,6 @@ paths:
                 $ref: '#/components/schemas/Navigation'
 components:
   schemas:
-    SidebarItem:
-      type: object
-      description: A sidebar navigation item which can be a page, link, or category.
-      properties:
-        type:
-          type: string
-          enum:
-          - page
-          - link
-          - category
-          description: The type of sidebar item.
-        id:
-          type: string
-          description: Page identifier for internal pages.
-        label:
-          type: string
-          description: Display text.
-        link:
-          type: string
-          description: URL for external links.
-        items:
-          type: array
-          description: Child items for category type.
-          items:
-            $ref: '#/components/schemas/SidebarItem'
     Navigation:
       type: object
       description: Combined navigation configuration.
@@ -84,3 +59,28 @@ components:
         default:
           type: string
           description: Default path for this navigation section.
+    SidebarItem:
+      type: object
+      description: A sidebar navigation item which can be a page, link, or category.
+      properties:
+        type:
+          type: string
+          enum:
+          - page
+          - link
+          - category
+          description: The type of sidebar item.
+        id:
+          type: string
+          description: Page identifier for internal pages.
+        label:
+          type: string
+          description: Display text.
+        link:
+          type: string
+          description: URL for external links.
+        items:
+          type: array
+          description: Child items for category type.
+          items:
+            $ref: '#/components/schemas/SidebarItem'
