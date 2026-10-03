@@ -32,117 +32,16 @@ paths:
                 $ref: '#/components/schemas/ZudokuConfig'
 components:
   schemas:
-    NavigationItem:
+    Redirect:
       type: object
-      description: A top navigation bar item.
+      description: A URL redirect rule.
       properties:
-        id:
+        from:
           type: string
-          description: Unique identifier matching a sidebar or API section.
-        label:
+          description: Source path pattern.
+        to:
           type: string
-          description: Display text for the navigation item.
-        default:
-          type: string
-          description: Default path for this navigation section.
-    Plugin:
-      type: object
-      description: A Zudoku plugin configuration. Plugins extend the platform with additional functionality such as search, analytics, and custom pages.
-      properties:
-        name:
-          type: string
-          description: Plugin name identifier.
-        config:
-          type: object
-          description: Plugin-specific configuration options.
-          additionalProperties: true
-    ThemeColors:
-      type: object
-      description: Color palette for a theme mode.
-      properties:
-        primary:
-          type: string
-          description: Primary brand color.
-        background:
-          type: string
-          description: Background color.
-        border:
-          type: string
-          description: Border color.
-    ThemeConfig:
-      type: object
-      description: Theme and branding configuration for customizing the look and feel of the generated documentation portal.
-      properties:
-        light:
-          $ref: '#/components/schemas/ThemeColors'
-        dark:
-          $ref: '#/components/schemas/ThemeColors'
-        fonts:
-          type: object
-          properties:
-            heading:
-              type: string
-            body:
-              type: string
-            code:
-              type: string
-    SidebarItem:
-      type: object
-      description: A sidebar navigation item which can be a page, link, or category.
-      properties:
-        type:
-          type: string
-          enum:
-          - page
-          - link
-          - category
-          description: The type of sidebar item.
-        id:
-          type: string
-          description: Page identifier for internal pages.
-        label:
-          type: string
-          description: Display text.
-        link:
-          type: string
-          description: URL for external links.
-        items:
-          type: array
-          description: Child items for category type.
-          items:
-            $ref: '#/components/schemas/SidebarItem'
-    DocConfig:
-      type: object
-      description: Configuration for MDX-based documentation pages.
-      properties:
-        files:
-          type: string
-          description: Glob pattern for MDX files to include.
-    AuthenticationConfig:
-      type: object
-      description: Authentication configuration supporting OpenID Connect, OAuth2, and custom authentication providers for the documentation portal and API playground.
-      properties:
-        type:
-          type: string
-          enum:
-          - openid
-          - oauth2
-          - custom
-          description: The authentication provider type.
-        clientId:
-          type: string
-          description: OAuth2/OIDC client identifier.
-        issuer:
-          type: string
-          description: OIDC issuer URL.
-        scopes:
-          type: array
-          items:
-            type: string
-          description: Requested OAuth2 scopes.
-        redirectUri:
-          type: string
-          description: OAuth2 redirect URI after authentication.
+          description: Target path.
     ApiReference:
       type: object
       description: Configuration for an API reference that points to an OpenAPI schema document. Supports file-based and URL-based references, versioning, and server URL overrides.
@@ -173,29 +72,92 @@ components:
         serverUrl:
           type: string
           description: Override the server URL in the OpenAPI document.
-    Metadata:
+    SidebarItem:
       type: object
-      description: Site metadata for SEO and social sharing.
+      description: A sidebar navigation item which can be a page, link, or category.
       properties:
-        title:
+        type:
           type: string
-          description: Site title.
-        description:
+          enum:
+          - page
+          - link
+          - category
+          description: The type of sidebar item.
+        id:
           type: string
-          description: Site description.
-        favicon:
+          description: Page identifier for internal pages.
+        label:
           type: string
-          description: Path to favicon.
-    Redirect:
+          description: Display text.
+        link:
+          type: string
+          description: URL for external links.
+        items:
+          type: array
+          description: Child items for category type.
+          items:
+            $ref: '#/components/schemas/SidebarItem'
+    ThemeColors:
       type: object
-      description: A URL redirect rule.
+      description: Color palette for a theme mode.
       properties:
-        from:
+        primary:
           type: string
-          description: Source path pattern.
-        to:
+          description: Primary brand color.
+        background:
           type: string
-          description: Target path.
+          description: Background color.
+        border:
+          type: string
+          description: Border color.
+    ThemeConfig:
+      type: object
+      description: Theme and branding configuration for customizing the look and feel of the generated documentation portal.
+      properties:
+        light:
+          $ref: '#/components/schemas/ThemeColors'
+        dark:
+          $ref: '#/components/schemas/ThemeColors'
+        fonts:
+          type: object
+          properties:
+            heading:
+              type: string
+            body:
+              type: string
+            code:
+              type: string
+    Plugin:
+      type: object
+      description: A Zudoku plugin configuration. Plugins extend the platform with additional functionality such as search, analytics, and custom pages.
+      properties:
+        name:
+          type: string
+          description: Plugin name identifier.
+        config:
+          type: object
+          description: Plugin-specific configuration options.
+          additionalProperties: true
+    DocConfig:
+      type: object
+      description: Configuration for MDX-based documentation pages.
+      properties:
+        files:
+          type: string
+          description: Glob pattern for MDX files to include.
+    NavigationItem:
+      type: object
+      description: A top navigation bar item.
+      properties:
+        id:
+          type: string
+          description: Unique identifier matching a sidebar or API section.
+        label:
+          type: string
+          description: Display text for the navigation item.
+        default:
+          type: string
+          description: Default path for this navigation section.
     ZudokuConfig:
       type: object
       description: The top-level Zudoku configuration object, typically defined in zudoku.config.ts or zudoku.config.tsx.
@@ -262,3 +224,41 @@ components:
                   type: string
                 color:
                   type: string
+    Metadata:
+      type: object
+      description: Site metadata for SEO and social sharing.
+      properties:
+        title:
+          type: string
+          description: Site title.
+        description:
+          type: string
+          description: Site description.
+        favicon:
+          type: string
+          description: Path to favicon.
+    AuthenticationConfig:
+      type: object
+      description: Authentication configuration supporting OpenID Connect, OAuth2, and custom authentication providers for the documentation portal and API playground.
+      properties:
+        type:
+          type: string
+          enum:
+          - openid
+          - oauth2
+          - custom
+          description: The authentication provider type.
+        clientId:
+          type: string
+          description: OAuth2/OIDC client identifier.
+        issuer:
+          type: string
+          description: OIDC issuer URL.
+        scopes:
+          type: array
+          items:
+            type: string
+          description: Requested OAuth2 scopes.
+        redirectUri:
+          type: string
+          description: OAuth2 redirect URI after authentication.

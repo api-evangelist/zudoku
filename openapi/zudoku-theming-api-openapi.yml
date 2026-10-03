@@ -32,6 +32,19 @@ paths:
                 $ref: '#/components/schemas/ThemeConfig'
 components:
   schemas:
+    ThemeColors:
+      type: object
+      description: Color palette for a theme mode.
+      properties:
+        primary:
+          type: string
+          description: Primary brand color.
+        background:
+          type: string
+          description: Background color.
+        border:
+          type: string
+          description: Border color.
     ThemeConfig:
       type: object
       description: Theme and branding configuration for customizing the look and feel of the generated documentation portal.
@@ -49,16 +62,3 @@ components:
               type: string
             code:
               type: string
-    ThemeColors:
-      type: object
-      description: Color palette for a theme mode.
-      properties:
-        primary:
-          type: string
-          description: Primary brand color.
-        background:
-          type: string
-          description: Background color.
-        border:
-          type: string
-          description: Border color.
