@@ -32,19 +32,6 @@ paths:
                 $ref: '#/components/schemas/Navigation'
 components:
   schemas:
-    NavigationItem:
-      type: object
-      description: A top navigation bar item.
-      properties:
-        id:
-          type: string
-          description: Unique identifier matching a sidebar or API section.
-        label:
-          type: string
-          description: Display text for the navigation item.
-        default:
-          type: string
-          description: Default path for this navigation section.
     Navigation:
       type: object
       description: Combined navigation configuration.
@@ -59,6 +46,19 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/SidebarItem'
+    NavigationItem:
+      type: object
+      description: A top navigation bar item.
+      properties:
+        id:
+          type: string
+          description: Unique identifier matching a sidebar or API section.
+        label:
+          type: string
+          description: Display text for the navigation item.
+        default:
+          type: string
+          description: Default path for this navigation section.
     SidebarItem:
       type: object
       description: A sidebar navigation item which can be a page, link, or category.
