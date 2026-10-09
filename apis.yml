@@ -114,6 +114,12 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zudoku.png
 access: 3rd-Party
 common:
+  - type: Plans
+    url: plans/zudoku-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/zudoku-rate-limits.yml
+  - type: FinOps
+    url: finops/zudoku-finops.yml
   - type: CapabilityMap
     url: capabilities/zudoku-capability-edges.yml
     name: Zudoku Business Capability Map
