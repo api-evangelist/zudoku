@@ -32,20 +32,6 @@ paths:
                 $ref: '#/components/schemas/Navigation'
 components:
   schemas:
-    Navigation:
-      type: object
-      description: Combined navigation configuration.
-      properties:
-        topNavigation:
-          type: array
-          items:
-            $ref: '#/components/schemas/NavigationItem'
-        sidebar:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/SidebarItem'
     NavigationItem:
       type: object
       description: A top navigation bar item.
@@ -84,3 +70,17 @@ components:
           description: Child items for category type.
           items:
             $ref: '#/components/schemas/SidebarItem'
+    Navigation:
+      type: object
+      description: Combined navigation configuration.
+      properties:
+        topNavigation:
+          type: array
+          items:
+            $ref: '#/components/schemas/NavigationItem'
+        sidebar:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SidebarItem'
